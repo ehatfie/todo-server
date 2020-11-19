@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "todoServer",
+    name: "todo-server",
     platforms: [
        .macOS(.v10_15)
     ],

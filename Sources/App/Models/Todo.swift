@@ -5,11 +5,13 @@ final class Todo: ApiModel, Content {
     
     struct _Input: Content {
         let title: String
+        let status: Status
     }
     
     struct _Output: Content {
         let id: String
         let title: String
+        let status: Status
     }
     
     typealias Input = _Input
@@ -42,6 +44,6 @@ final class Todo: ApiModel, Content {
         }
         
         var output: Output {
-            .init(id: self.id!.uuidString, title: self.title)
+            .init(id: self.id!.uuidString, title: self.title, status: self.status)
         }
 }

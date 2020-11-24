@@ -51,7 +51,7 @@ struct TodoController: RouteCollection, ApiController {
         let input = try req.content.decode(Todo.Input.self)
         let todo = Todo(title: input.title)
         return todo.save(on: req.db)
-            .map { Todo.Output(id: todo.id!.uuidString, title: todo.title) }
+            .map { Todo.Output(id: todo.id!.uuidString, title: todo.title, status: todo.status) }
     }
     
     func delete(req: Request) throws -> EventLoopFuture<HTTPStatus> {
